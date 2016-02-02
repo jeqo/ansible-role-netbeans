@@ -111,6 +111,6 @@ galaxy_info:
   #  - wheezy
 
   galaxy_tags:
-    - development
-    - ide
+  - development
+  - ide
 dependencies: []
