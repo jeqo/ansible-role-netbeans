@@ -1,0 +1,3 @@
+---
+# tasks file for netbeans
+- include: install.yml

@@ -1,0 +1,30 @@
+---
+#
+- stat: "path={{ netbeans_home }}/bin/netbeans"
+  register: netbeans_stat
+
+- debug:
+    var: netbeans_stat
+
+- name: download installer
+  get_url:
+    url: "{{ netbeans_download_url }}"
+    dest: /tmp/netbeans.sh
+  when: netbeans_stat.stat.exists == false
+
+- file: path=/tmp/netbeans.sh state=touch mode="u=rwx,g=rx,o=r"
+
+- name: install netbeans
+  shell: "/tmp/netbeans.sh --silent -J-Dnb-base.installation.location={{ netbeans_home }}"
+  args:
+    creates: "{{ netbeans_home }}/bin/netbeans"
+  when: netbeans_stat.stat.exists == false
+
+- name: define netbeans command
+  template:
+    src: netbeans.j2
+    dest: "/usr/bin/{{ netbeans_command }}"
+    mode: "u=rwx,g=rx,o=r"
+    owner: "{{ ansible_env.USER }}"
+  become: true
+  become_user: root

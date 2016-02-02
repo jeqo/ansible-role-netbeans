@@ -1,0 +1,7 @@
+---
+# vars file for netbeans
+netbeans_base: "{{ ansible_env.HOME }}/netbeans"
+netbeans_home: "{{ netbeans_base }}/netbeans-{{ netbeans_version }}"
+netbeans_userdir: "{{ ansible_env.HOME }}/.{{ netbeans_command }}_userdir"
+netbeans_cachedir: "{{ ansible_env.HOME }}/.{{ netbeans_command }}_cachedir"
+netbeans_download_url: http://download.netbeans.org/netbeans/{{ netbeans_version }}/final/bundles/netbeans-{{ netbeans_version}}-linux.sh

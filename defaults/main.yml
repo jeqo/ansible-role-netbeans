@@ -1,0 +1,5 @@
+---
+# defaults file for netbeans
+netbeans_version: 8.1
+netbeans_java_home:
+netbeans_command: "netbeans"
