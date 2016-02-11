@@ -1,6 +1,5 @@
----
 galaxy_info:
-  author: jeqo (quilcate.jorge@gmail.com)
+  author: jeqo
   description: netbeans role to install and configure ide
 
   license: MIT
